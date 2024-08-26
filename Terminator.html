@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@media all{
+    
+    :root{
+        --dark1     :  #2e3440;
+        --dark2     :  #3b4252;
+        --dark3     :  #434c5e;
+        --dark4     :  #4c566a;
+        --light1    :  #d8dee9;
+        --light2    :  #e5e9f0;
+        --light3    :  #eceff4;
+        --blue1     :  #8fbcbb;
+        --blue2     :  #88c0d0;
+        --blue3     :  #81a1c1;
+        --blue4     :  #5e81ac;
+        --red       :  #bf616a;
+        --orange    :  #d08770;
+        --yellow    :  #ebcb8b;
+        --green     :  #a3be8c;
+        --purple    :  #b48ead;
+    }
+        
+
+    @page {
+        size: A4 landscape;
+        margin: 4pt 15pt; 
+    }
+    body {
+        font-family: "Roboto", sans-serif;
+        
+        font-size: 1.0em;
+        /* font-family: "Caudex", cursive; */
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark1);
+    }
+    h2 {
+        text-align: center;
+    }
+    .columns {
+        columns: 2 auto;
+    }
+    table{
+        color: var(--dark1);
+        background-color: var(--light1);
+
+        margin-bottom: 1.5em;
+    }
+    table, th, td {
+        border-collapse: collapse;
+        vertical-align: top
+    }
+    tr {
+        
+    }
+    th {
+        text-align: left;
+        padding: 0.4em;
+    }
+    td {
+        font-size: 1.0em;
+        padding: 0.4em;
+        vertical-align: baseline;
+       
+        
+    }
+    tr:nth-child(even) {
+        background-color: var(--light1);
+    }
+    tr:nth-child(odd) {
+        background-color: var(--light3);
+    }
+    .command-name {
+        font-size: 1.0em;
+        padding-right: 2em;
+        color: var(--dark1);
+    }
+    .command-keys {
+        font-size: 1.0em;
+        padding-right: 2em;
+        color: var(--dark1);
+    }
+    .panel {
+        min-width: 30%;
+    }
+    table.panel-table {
+        width:100%;
+        table-layout: fixed;
+        overflow-wrap: break-word;
+    }
+    .panel-name {
+        font-size: 1.1em;
+    }
+    .panel-desc:before {
+        content: "\00a0"; /* this is &nbsp; */
+    }
+    .panel-desc {
+        font-style: italic;
+        font-weight: normal;
+    }
+    p {
+        margin: 2px;
+    }
+    span.key {
+        font-family: "Roboto Mono", monospace;
+        font-size: 0.8em;
+        border-radius: 4px;
+        border: 1px solid var(--light1);
+        color: var(--dark2);
+        background: var(--light3);
+        padding: 0.2em 0.4em 0.2em 0.4em; 
+        margin-right: 0.1em;
+        margin-top: 0;
+    }
+    span.highlight {
+        font-style: italic;
+        color: var(--red);
+    }
+    .nord-7{
+        border: 0.1em solid var(--blue1);
+        background-color: var(--blue1);
+        color: var(--light3);
+    }   
+     .nord-8{
+        border: 0.1em solid var(--blue2);
+        background-color: var(--blue2);
+        color: var(--light3);
+    }    
+    .nord-9{
+        border: 0.1em solid var(--blue3);
+        background-color: var(--blue3);
+        color: var(--light3);
+    }    
+    .nord-10{
+        border: 0.1em solid var(--blue4);
+        background-color: var(--blue4);
+        color: var(--light3);
+    }
+    .nord-11{
+        border: 0.1em solid var(--red);
+        background-color: var(--red);
+        color: var(--light3);
+    }
+    .nord-12{
+        border: 0.1em solid var(--orange);
+        background-color: var(--orange);
+        color: var(--light3);
+    }
+    .nord-13{
+        border: 0.1em solid var(--yellow);
+        background-color: var(--yellow);
+        color: var(--light3);
+    }
+    .nord-14{
+        border: 0.1em solid var(--green);
+        background-color: var(--green);
+        color: var(--light3);
+    }
+    .nord-15{
+        border: 0.1em solid var(--purple);
+        background-color: var(--purple);
+        color: var(--light3);
+    }
+    .icon{
+        vertical-align: middle;
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+    }
+}
+
+</style>
+</head>
+<body>
+    <h2>
+        <svg class="icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><radialGradient id="c" cx="605.71" cy="486.65" r="117.14" gradientTransform="matrix(-2.7744 0 0 1.9697 112.76 -872.89)" gradientUnits="userSpaceOnUse" xlink:href="#a"/><linearGradient id="a"><stop offset="0"/><stop stop-opacity="0" offset="1"/></linearGradient><radialGradient id="d" cx="605.71" cy="486.65" r="117.14" gradientTransform="matrix(2.7744 0 0 1.9697 -1891.6 -872.89)" gradientUnits="userSpaceOnUse" xlink:href="#a"/><linearGradient id="f" x1="302.86" x2="302.86" y1="366.65" y2="609.51" gradientTransform="matrix(2.7744 0 0 1.9697 -1892.2 -872.89)" gradientUnits="userSpaceOnUse"><stop stop-opacity="0" offset="0"/><stop offset=".5"/><stop stop-opacity="0" offset="1"/></linearGradient><linearGradient id="h" x1="11.492" x2="17.199" y1="1.6538" y2="26.729" gradientTransform="matrix(1.2362 0 0 .89605 -1.0818 2.8307)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" offset="0"/><stop stop-color="#fcfcff" stop-opacity="0" offset="1"/></linearGradient><linearGradient id="l" x1="23.119" x2="22.441" y1="9.583" y2="34.226" gradientTransform="matrix(.95009 0 0 .96509 1.1834 .27671)" gradientUnits="userSpaceOnUse"><stop stop-color="#f00" offset="0"/><stop stop-color="#5a0000" offset="1"/></linearGradient><linearGradient id="k" x1="29.87" x2="24.842" y1="32.286" y2="14.158" gradientTransform="matrix(.95741 0 0 .95233 1.0228 .13331)" gradientUnits="userSpaceOnUse"><stop stop-color="#777973" offset="0"/><stop stop-color="#cbccca" offset="1"/></linearGradient><linearGradient id="j" x1="8.6529" x2="21.305" y1="9.5865" y2="32.498" gradientTransform="matrix(.95741 0 0 .95233 1.0228 .13331)" gradientUnits="userSpaceOnUse"><stop stop-color="#a2a59c" offset="0"/><stop stop-color="#535750" offset="1"/></linearGradient><linearGradient id="i" x1="20.339" x2="48.845" y1="19.637" y2="49.731" gradientTransform="matrix(.95351 0 0 .94787 1.1415 1.2056)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" offset="0"/><stop stop-color="#fff" stop-opacity="0" offset="1"/></linearGradient><linearGradient id="g" x1="11.048" x2="26.178" y1="9.1463" y2="30.343" gradientTransform="matrix(.99759 0 0 .98936 .043547 .091764)" gradientUnits="userSpaceOnUse"><stop stop-color="#616161" offset="0"/><stop stop-color="#a0a0a0" offset="1"/></linearGradient><linearGradient id="e" x1="40.253" x2="36.452" y1="42.319" y2="38" gradientTransform="matrix(1 0 0 .74476 0 9.5691)" gradientUnits="userSpaceOnUse"><stop stop-color="#a9aaa7" offset="0"/><stop stop-color="#676964" offset="1"/></linearGradient><radialGradient id="b" cx="37.496" cy="39.51" r="2.51" gradientTransform="matrix(1 0 0 .73779 0 9.8443)" gradientUnits="userSpaceOnUse"><stop stop-color="#777973" offset="0"/><stop stop-color="#777973" stop-opacity="0" offset="1"/></radialGradient></defs><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/><dc:date/><dc:creator><cc:Agent><dc:title/></cc:Agent></dc:creator><dc:subject><rdf:Bag/></dc:subject><cc:license rdf:resource=""/><dc:contributor><cc:Agent><dc:title/></cc:Agent></dc:contributor></cc:Work><cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.0/"><cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/><cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/><cc:requires rdf:resource="http://web.resource.org/cc/Notice"/><cc:requires rdf:resource="http://web.resource.org/cc/Attribution"/><cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></cc:License></rdf:RDF></metadata><g transform="matrix(.024545 0 0 .020868 46.144 39.341)"><rect x="-1559.3" y="-150.7" width="1339.6" height="478.36" color="black" fill="url(#f)" opacity=".40206"/><path d="m-219.62-150.68v478.33c142.87 0.90045 345.4-107.17 345.4-239.2 0-132.03-159.44-239.13-345.4-239.13z" color="black" fill="url(#d)" opacity=".40206"/><path d="m-1559.3-150.68v478.33c-142.87 0.90045-345.4-107.17-345.4-239.2 0-132.03 159.44-239.13 345.4-239.13z" color="black" fill="url(#c)" opacity=".40206"/></g><rect x="1.5026" y="3.5016" width="44.996" height="38.999" rx="4.8517" ry="4.8517" fill="url(#k)" fill-rule="evenodd" stroke="url(#j)" stroke-linecap="round" stroke-linejoin="round"/><rect x="5.4357" y="7.4998" width="37.088" height="29.005" rx="1.6452" ry="1.6443" fill="url(#l)" fill-rule="evenodd" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".99467"/><g fill="none" opacity=".25568" stroke="#181f10" stroke-width="1.0007"><path d="m8.0152 11.5h31.979"/><path d="m8.0152 13.5h31.979"/><path d="m8.0152 15.5h31.979"/><path d="m8.0152 17.5h31.979"/><path d="m8.0152 19.5h31.979"/><path d="m8.0152 21.5h31.979"/><path d="m8.0152 23.5h31.979"/><path d="m8.0152 25.5h31.979"/><path d="m8.0152 27.5h31.979"/><path d="m8.0152 29.5h31.979"/><path d="m8.0152 31.5h31.979"/><path d="m8.0152 33.5h31.979"/></g><rect x="2.5543" y="4.5007" width="42.945" height="37.001" rx="3.791" ry="3.791" fill="none" opacity=".76374" stroke="url(#i)" stroke-linecap="round" stroke-linejoin="round"/><path d="m8.5171 12.192v-1.124l3.3063 1.4943v0.68295l-3.3063 1.5041v-1.1206l2.5628-0.6822-2.5628-0.75458zm6.9522 3.6896v0.72648h-4.0123v-0.72648h4.0123" fill="#fff" stroke="#f00" stroke-opacity=".27869" stroke-width=".36799pt"/><path d="m23 9.9375v11.062h-15.031v2h15.031v11.094h2v-11.094h15.031v-2h-15.031v-11.062h-2z" opacity=".72414"/><path d="m7.6254 8c-0.52329 0-1.5739 0.19019-1.5739 1.026l0.11805 16.517c17.672-0.96339 14.125-8.2561 35.83-11.909l-0.062736-4.3419c-0.078262-1.1251-0.53932-1.2319-1.6101-1.2253l-32.702-0.066071z" fill="url(#h)" fill-rule="evenodd" opacity=".53143"/><rect x="6.9895" y="8.9805" width="34.026" height="26.057" rx=".11773" ry=".11773" fill="none" opacity=".71429" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><rect x="35.486" y="37.515" width="4.0201" height="2.959" rx=".35819" ry=".56023" fill="url(#b)" fill-rule="evenodd" stroke="url(#e)" stroke-linecap="round"/><rect x="32" y="38" width="2" height="2" rx=".56023" ry=".56023" fill="#f00" fill-rule="evenodd"/><path transform="translate(4.375 -.0625)" d="m28.875 38.75a0.5625 0.5625 0 1 1-1.125 0 0.5625 0.5625 0 1 1 1.125 0z" color="#000000" fill="#fff"/><path d="m25.695 12.192v-1.124l3.3063 1.4943v0.68295l-3.3063 1.5041v-1.1206l2.5628-0.6822-2.5628-0.75458zm6.9522 3.6896v0.72648h-4.0123v-0.72648h4.0123" fill="#fff" stroke="#f00" stroke-opacity=".27869" stroke-width=".36799pt"/><path d="m8.5171 26.539v-1.124l3.3063 1.4943v0.68295l-3.3063 1.5041v-1.1206l2.5628-0.6822-2.5628-0.75458zm6.9522 3.6896v0.72648h-4.0123v-0.72648h4.0123" fill="#fff" stroke="#f00" stroke-opacity=".27869" stroke-width=".36799pt"/><path d="m25.695 26.606v-1.124l3.3063 1.4943v0.68295l-3.3063 1.5041v-1.1206l2.5628-0.6822-2.5628-0.75458zm6.9522 3.6896v0.72648h-4.0123v-0.72648h4.0123" fill="#fff" stroke="#f00" stroke-opacity=".27869" stroke-width=".36799pt"/></svg>
+        <span>Terminator</span>
+    </h2>
+
+    <div class="columns">
+        <div class="panel">
+            <table class="panel-table nord-7">
+                <tr>
+                    <th class="nord-7" colspan="2"><span class="panel-name">General</span><span class="panel-desc">&nbsp;</span></th>
+                </tr>
+                <tr>
+                    <td class="command-name">Find</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">F</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Open dropdown</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">Space</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Open settings</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">,</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Toggle fullscreen</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">Enter</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Increase font size</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">+</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Decrease font size</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">-</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Reset font size</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">0</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="panel">
+            <table class="panel-table nord-8">
+                <tr>
+                    <th class="nord-8" colspan="2"><span class="panel-name">Tabs</span><span class="panel-desc">&nbsp;</span></th>
+                </tr>
+                <tr>
+                    <td class="command-name">New tab</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">T</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Duplicate tab</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">D</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Close tab</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">W</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Cycle next tab</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Tab</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Cycle previous tab</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">Tab</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Open tab with profile </span><span class="highlight">0..9</span></td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key"><span class="highlight">0..9</span></span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Switch to tab </span><span class="highlight">0..9</span></td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Alt</span>+<span class="key"><span class="highlight">0..9</span></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel">
+            <table class="panel-table nord-9">
+                <tr>
+                    <th class="nord-9" colspan="2"><span class="panel-name">Panes</span><span class="panel-desc">&nbsp;</span></th>
+                </tr>
+                <tr>
+                    <td class="command-name">Split pane</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">D</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Split horizontal</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">-</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Split vertical</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">+</span></td>
+                </tr>
+                <tr>
+                    <td class="command-name">Move focus</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">🡑</span>,<span class="key">🡓</span>,<span class="key">🡐</span>,<span class="key">🡒</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Previous focused</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Alt</span>,<span class="key">Left</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Resize pane</td>
+                    <td class="command-keys"><span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">🡑</span>,<span class="key">🡓</span>,<span class="key">🡐</span>,<span class="key">🡒</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Close pane</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">W</span></td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="panel">
+            <table class="panel-table nord-10">
+                <tr>
+                    <th class="nord-10" colspan="2"><span class="panel-name">Scrolling</span><span class="panel-desc">&nbsp;</span></th>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll up</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">🡑</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll down</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">🡓</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll page up</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">🡑</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll page down</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">🡓</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll to beggining</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">Home</span></td>
+                </tr>
+
+                <tr>
+                    <td class="command-name">Scroll to end</td>
+                    <td class="command-keys"><span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">End</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
